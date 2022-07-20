@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Blinker', sans-serif;
+  font-family: 'Caveat', cursive;
+  font-family: 'League Spartan', sans-serif;
+  font-family: 'Shippori Antique', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  font-size: 22px;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
+}
+
+.bg {
+  &__header {
+    background-color: green;
+  }
+
+  &__main {
+    background-color: blue;
+  }
+}
