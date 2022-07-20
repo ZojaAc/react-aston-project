@@ -3,10 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Blinker', sans-serif;
-  font-family: 'Caveat', cursive;
-  font-family: 'League Spartan', sans-serif;
-  font-family: 'Shippori Antique', sans-serif;
-  font-family: 'Work Sans', sans-serif;
+  // font-family: 'Shippori Antique', sans-serif;
+  // font-family: 'League Spartan', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -17,12 +15,117 @@ body {
   -moz-osx-font-smoothing: grayscale;  
 }
 
-.bg {
-  &__header {
-    background-color: green;
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--btw {
+    justify-content: space-between;
   }
 
-  &__main {
-    background-color: blue;
+  &--wrap {
+    flex-wrap: wrap;
   }
 }
+
+.btn {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 2px solid #800080;
+  border-radius: 5px;
+}
+
+.header {
+  background-color: #e6e6e6;
+  padding: 20px 40px;
+
+  &__sign {
+    font-size: 24px;
+    font-weight: 600;
+    min-width: 130px;
+    margin-right: 20px;
+  }
+}
+
+.input {
+  box-shadow: none;
+  height: 50px;
+  padding: 5px 10px;
+  min-width: 250px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  outline: 2px solid #800080;
+  outline-offset: -2px;
+  font-size: 20px;
+}
+
+.input:focus {
+  background-color: #f2f2f2;
+  outline: 2px solid #800080;
+  outline-offset: -2px;
+}
+
+////
+
+.input::-webkit-input-placeholder {
+  font-family: 'Blinker', sans-serif;
+  color: #000000;
+  opacity: 1;
+}
+
+.input::-moz-placeholder {
+  font-family: 'Blinker', sans-serif;
+  color: #000000;
+  opacity: 1;
+}
+
+////
+
+.main {
+  &__description {
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  &__input {
+    &-btn {
+      font-weight: 600;
+      min-width: 100px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form {
+  flex-direction: column;
+
+  &__box {
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    min-width: 250px;
+  }
+}
+

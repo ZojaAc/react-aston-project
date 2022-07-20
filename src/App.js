@@ -1,7 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Home from './pages/Home';
+import Home from './components/Home';
+import Entrance from './components/Entrance';
+import Registry from './components/Registry';
 
 
 function App() {
@@ -11,6 +13,10 @@ function App() {
       
       <Routes>
         <Route path='/' element={<Home />}>
+        </Route>
+        <Route path='/entrance' element={<Entrance />}>
+        </Route>
+        <Route path='/registry' element={<Registry />}>
         </Route>
       </Routes>     
 
