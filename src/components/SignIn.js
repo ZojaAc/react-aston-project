@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Entrance() {
+export default function SignIn() {
   return (
     <>
-      <div className="entrance">
-        <h2 className="entrance__title title">Введите логин и пароль</h2>
-        <form className="entrance__form form flex">
+      <div className="signin">
+        <h2 className="signin__title title">Введите логин и пароль</h2>
+        <form className="signin__form form flex">
           <div className="form__box">
             <input className="form__input input" id="userLogin" type='text' placeholder="Логин" required autoFocus />
           </div>

@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Registry() {
+export default function SignUp() {
   return (
     <>
-      <div className="registry">
-        <h2 className="registry__title title">Создайте логин и пароль</h2>
-        <form className="registry__form form flex">
+      <div className="signup">
+        <h2 className="signup__title title">Создайте логин и пароль</h2>
+        <form className="signup__form form flex">
           <div className="form__box">
             <input className="form__input input" id="userLogin" type='text' placeholder="Логин" required autoFocus />
           </div>

@@ -13,10 +13,10 @@ export default function Header() {
       </Link>
       <nav>
         <ul className="flex flex--btw">
-          <Link to='/entrance'>
+          <Link to='/signin'>
             <li className="header__sign btn header__sign--in">Вход</li>
           </Link>
-          <Link to='/registry'>
+          <Link to='/signup'>
             <li className="header__sign btn header__sign--up">Регистрация</li>
           </Link>
         </ul>
