@@ -4,11 +4,11 @@ import Home from "./Home";
 export default function SignIn() {
   const login = useRef();
   const password = useRef();
-  const getLogin = localStorage.getItem('loginData');
-  const getPassword = localStorage.getItem('passwordData');
+  const loginFrLS = localStorage.getItem('loginData');
+  const passwordFrLS = localStorage.getItem('passwordData');
 
   const handleSubmit = () => {
-    if(login.current.value === getLogin && password.current.value === getPassword) {
+    if(login.current.value === loginFrLS && password.current.value === passwordFrLS) {
       localStorage.setItem('loginData', login.current.value);
       localStorage.setItem('passwordData', password.current.value);
       alert('you are success')
@@ -18,7 +18,7 @@ export default function SignIn() {
   return (
     <>
       {
-        getLogin && getPassword ? <Home /> :
+        (loginFrLS && passwordFrLS) ? <Home /> :
 
         <div className="signin">
           <h2 className="signin__title title">Sign In</h2>

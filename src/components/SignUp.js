@@ -4,8 +4,8 @@ import Home from "./Home";
 export default function SignUp() {
   const dataLogin = useRef();
   const dataPassword = useRef();
-  const getLogin = localStorage.getItem('loginData');
-  const getPassword = localStorage.getItem('passwordData');
+  const loginFrLS = localStorage.getItem('loginData');
+  const passwordFrLS = localStorage.getItem('passwordData');
 
   const handleClick = () => {
     localStorage.setItem('loginData', dataLogin.current.value);
@@ -15,7 +15,7 @@ export default function SignUp() {
   return (
     <>
       {
-        getLogin && getPassword ? <Home /> :
+        (loginFrLS && passwordFrLS) ? <Home /> :
 
         <div className="signup">
           <h2 className="signup__title title">Sign Up</h2>
