@@ -2,9 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Blinker', sans-serif;
-  // font-family: 'Shippori Antique', sans-serif;
-  // font-family: 'League Spartan', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -59,6 +57,15 @@ a {
     font-weight: 600;
     min-width: 130px;
     margin-right: 20px;
+
+    &--out {
+      background-color: #800080;
+      color: #ffffff;
+    }
+  }
+
+  &__username {
+    display: block;
   }
 }
 
@@ -83,13 +90,13 @@ a {
 ////
 
 .input::-webkit-input-placeholder {
-  font-family: 'Blinker', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #000000;
   opacity: 1;
 }
 
 .input::-moz-placeholder {
-  font-family: 'Blinker', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #000000;
   opacity: 1;
 }
