@@ -14,13 +14,14 @@ function App() {
 
   // пиво
   useEffect(() => {
-    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=4`)
+    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=2`)
     .then((res) => {
-      // console.log(res.data);
       setListItems([...listItems, ...res.data]);
       console.log(res.data);
     })
   }, []);
+
+  // https://api.punkapi.com/v2/beers/random
 
    
   return (

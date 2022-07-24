@@ -1,8 +1,17 @@
 import React from 'react';
+// import { useState } from 'react';
 // import Goods from './Goods';
 
 
 export default function Home({ listItems }) {
+  const [addFavor, setAddFavor] = React.useState(false);
+  // поменять false на переменную, сейчас меняет для всех карточек
+
+  const onClickFavor = () => {
+    setAddFavor(!addFavor);  //  поменять картинку
+  }
+  
+
   return (
     <div className='main'>
       <div className='main__description'>
@@ -21,15 +30,22 @@ export default function Home({ listItems }) {
       <div className='main__list goods'>
         {listItems.map((item) => (
           <div className='goods__card' key={item.id}>
-            <h3 className='goods__name'>{item.name}</h3>
-            <span className='goods__tagline'>{item.tagline}</span>
-            <span className='goods__prod-date'>First brewed: {item.first_brewed}</span>
-            <p className='goods__description'>{item.description}</p>
-            <p className='goods__pairing'>Enjoy it with: {item.food_pairing}</p>
-            <p className='goods__tips'>Brewers tips: {item.brewers_tips} from: {item.contributed_by}</p>
-            <img className='goods__img' src={item.image_url} />
-
-
+            <div>
+              <h3 className='goods__name'>{item.name}</h3>
+              <span className='goods__tagline'>{item.tagline}</span>
+              <span className='goods__prod-date'>First brewed: {item.first_brewed}</span>
+              <p className='goods__description'>{item.description}</p>
+              <p className='goods__pairing'><b>Enjoy it with:</b> {item.food_pairing.map((pair, i) => (`${item.food_pairing[i] + ', '}`))}</p>
+              <p className='goods__tips'><b>Brewers tips:</b> {item.brewers_tips} from: {item.contributed_by}</p>
+            </div>
+            <img className='goods__img' src={item.image_url} alt='good-img' />
+            <button className='goods__btn-like' onClick={onClickFavor}>
+              <img className='goods__btn-like-img' src={addFavor ? '/img/liked.svg' : '/img/like.svg'} alt='like-img' />
+            </button>
+            <button className='goods__btn-more btn'>
+              <span className='goods__btn-more-txt'>more</span>
+              <img className='goods__btn-more-img' src='./img/more.svg' alt='more-img' />
+            </button>
           </div>
         ))}   
       </div>
