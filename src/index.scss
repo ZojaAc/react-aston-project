@@ -13,6 +13,14 @@ body {
   -moz-osx-font-smoothing: grayscale;  
 }
 
+// mixins
+@mixin font($font-size, $line-height, $font-weight: null) {
+  font: $font-weight #{$font-size} / #{$line-height} $font-text;
+}
+
+// fonts
+$font-text: 'Poppins', sans-serif;
+
 ul, li {
   list-style: none;
 }
@@ -52,9 +60,16 @@ a {
   background-color: #e6e6e6;
   padding: 20px 40px;
 
+  &__main {
+    &-logo {
+      max-width: 120px;
+      max-height: 70px;
+      margin-left: 10px;
+    }
+  }
+
   &__sign {
-    font-size: 24px;
-    font-weight: 600;
+    @include font(24px, 36px, 600);
     min-width: 130px;
     margin-right: 20px;
 
@@ -104,9 +119,16 @@ a {
 ////
 
 .main {
+  padding: 20px;
+
   &__description {
+    margin: 0 auto;
     padding: 10px 15px;
     text-align: center;
+  }
+
+  &__search {
+    padding: 10px;
   }
 
   &__input {
@@ -115,6 +137,11 @@ a {
       min-width: 100px;
       margin-left: 20px;
     }
+  }
+
+  &__list {
+    padding: 20px;
+    display: flex;
   }
 }
 
@@ -133,6 +160,84 @@ a {
 
   &__btn {
     min-width: 250px;
+  }
+}
+
+.goods {
+  @include font(18px, 24px, 300);
+
+  span, h3, p {
+    display: block;
+  }
+
+  &__card {
+    width: 50%;
+    margin: 0 10px;
+    display: flex;
+    position: relative;
+    padding-bottom: 60px;
+  }
+
+  &__tagline {
+    @include font(18px, 24px, 500);
+  }
+
+  &__description, &__pairing, &__tips {
+    @include font(16px, 20px, 300);
+  }
+
+  &__prod-date {
+    margin-bottom: 5px;
+  }
+
+  &__img {
+    max-width: 200px;
+    max-height: 300px;
+    margin-left: 15px;
+  }
+
+  &__btn-like {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    right: 40%;
+
+    &-img {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+  
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__btn-more {
+    @include font(18px, 24px, 600);
+    padding: 10px 25px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-img {
+      width: 28px;
+      height: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+  
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
   }
 }
 

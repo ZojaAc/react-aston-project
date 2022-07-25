@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import Home from "./Home";
+import Home from '../containers/Home';
 
 export default function SignIn() {
   const login = useRef();
@@ -7,7 +7,7 @@ export default function SignIn() {
   const loginFrLS = localStorage.getItem('loginData');
   const passwordFrLS = localStorage.getItem('passwordData');
 
-  const handleSubmit = () => {
+  const handleSubmit = () => {    
     if(login.current.value === loginFrLS && password.current.value === passwordFrLS) {
       localStorage.setItem('loginData', login.current.value);
       localStorage.setItem('passwordData', password.current.value);
