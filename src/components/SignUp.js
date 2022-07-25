@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import Home from "./Home";
+import Home from '../containers/Home';
 
 export default function SignUp() {
   const dataLogin = useRef();
@@ -7,7 +7,8 @@ export default function SignUp() {
   const loginFrLS = localStorage.getItem('loginData');
   const passwordFrLS = localStorage.getItem('passwordData');
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     localStorage.setItem('loginData', dataLogin.current.value);
     localStorage.setItem('passwordData', dataPassword.current.value);
   }
@@ -19,7 +20,7 @@ export default function SignUp() {
 
         <div className="signup">
           <h2 className="signup__title title">Sign Up</h2>
-          <form className="signup__form form flex">
+          <form className="signup__form form flex" onSubmit={handleClick}>
             <div className="form__box">
               <input className="form__input input" ref={dataLogin} id="userLogin" type='text' placeholder="Create your username" required autoFocus />
             </div>
@@ -27,7 +28,7 @@ export default function SignUp() {
               <input className="form__input input" ref={dataPassword} id="userPassword" type='text' placeholder="Create your password" required />
             </div>
             <div className="form__box">
-              <input className="form__btn btn" onClick={handleClick} type='submit' value='Sign Up' />
+              <input className="form__btn btn" type='submit' value='Sign Up' />
             </div>
           </form>
         </div>
