@@ -7,6 +7,8 @@ import Home from './containers/Home';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Favorites from './components/Favorites';
+import RegisterPage from './components/RegisterPage';
+import LoginPage from './components/LoginPage';
 
 
 function App() {
@@ -44,6 +46,12 @@ function App() {
         <Route path='/signin' element={<SignIn />}>
         </Route>
         <Route path='/signup' element={<SignUp />}>
+        </Route>
+
+        {/* временно */}
+        <Route path='/register' element={<RegisterPage />}>
+        </Route>
+        <Route path='/login' element={<LoginPage />}>
         </Route>
 
         {/* временно */}
