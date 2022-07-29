@@ -4,7 +4,7 @@ import { FormTemplate } from "./FormTemplate";
 import { setUser } from "../store/userSlice";
 
 
-const Register = () => {
+const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -12,25 +12,20 @@ const Register = () => {
     localStorage.setItem('loginData', login);
     localStorage.setItem('passwordData', password);
 
-    // const createUserWithPassword = createUserWithPassword();
-    // createUserWithPassword(login, password, isUserAutorized)  
-    //   .then(({ user }) => {
-      dispatch(setUser({
-        login: login,
-        password: password,
-        isUserAutorized: true,
-      }));
-      navigate('/');
-    }
-      // .catch(console.error)
-  // }  
+    dispatch(setUser({
+      login: login,
+      password: password,
+      isUserAutorized: true,
+    }));
+    navigate('/');
+  }
 
   return (
     <FormTemplate
-      title='register in'
+      title='Sign Up'
       handleClick={handleRegister}
     />
   )
 }
 
-export {Register}
+export {SignUp}

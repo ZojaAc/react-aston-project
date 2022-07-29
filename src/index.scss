@@ -71,7 +71,8 @@ a {
   &__sign {
     @include font(24px, 36px, 600);
     min-width: 130px;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 
     &--out {
       background-color: #800080;
@@ -149,6 +150,19 @@ a {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+
+  &__link {
+    text-align: center;
+    margin-top: 20px;
+    @include font(18px, 22px, 300);
+
+    &-a {
+      font-style: italic;
+      text-decoration: underline;
+      color: #800080;
+      margin-left: 10px;
+    }
+  }
 }
 
 .form {
