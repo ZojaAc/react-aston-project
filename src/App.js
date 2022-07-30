@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import Home from './containers/Home';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
 import Favorites from './components/Favorites';
+import SignUpPage from './components/SignUpPage';
+import SignInPage from './components/SignInPage';
 
 
 function App() {
@@ -41,9 +41,9 @@ function App() {
         <Route path='/' element={<Home 
           listItems={listItems} onAddToFavor={onAddToFavor} isItemAddtoFavor={isItemAddtoFavor} />}>
         </Route>
-        <Route path='/signin' element={<SignIn />}>
+        <Route path='/signup' element={<SignUpPage />}>
         </Route>
-        <Route path='/signup' element={<SignUp />}>
+        <Route path='/signin' element={<SignInPage />}>
         </Route>
 
         {/* временно */}
