@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useAuth } from '../hooks/auth';
-import { removeUser } from "../store/userSlice";
+import { offUser } from "../store/userSlice";
 
 export default function Header() { 
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function Header() {
   const {isAuth, login} = useAuth();
 
   // const userName = useSelector((state) => state.login);
-  const userName = localStorage.getItem('loginData').charAt(0).toUpperCase() + localStorage.getItem('loginData').slice(1);
+  const userName = localStorage.getItem('loginData');
  
   return (
     <div className="header flex flex--btw">
@@ -34,7 +34,7 @@ export default function Header() {
                 <li className="header__sign btn header__history">History</li>
               </Link>
               <button className="header__sign btn header__sign--out"
-                onClick={() => dispatch(removeUser())}
+                onClick={() => dispatch(offUser())}
                 >Sign Out
               </button>
             </div>

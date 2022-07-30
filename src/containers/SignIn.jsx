@@ -13,10 +13,13 @@ const SignIn = () => {
     const passwordData = localStorage.getItem('passwordData', password);
 
     if(loginData !== login) {
+      const text1 = document.getElementById('wrongName');
+      text1.style.display = 'block';
       console.log('wrong name');
     } 
     else if (loginData === login && passwordData !== password) {
-      console.log('wrong password');
+      const text2 = document.getElementById('wrongPassword');
+      text2.style.display = 'block';
     } 
     else if (loginData === login && passwordData === password) {
       dispatch(setUser({
@@ -29,10 +32,15 @@ const SignIn = () => {
   }
 
   return (
-    <FormTemplate
-      title='Sign In'
-      handleClick={handleLogin}
-    />
+    <>
+      <FormTemplate
+        title='Sign In'
+        handleClick={handleLogin}
+      />
+      <span id="wrongName">You type wrong name!</span>
+      <span id="wrongPassword">You type wrong password!</span>
+    </>
+    
   )
 }
 

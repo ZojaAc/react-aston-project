@@ -16,7 +16,7 @@ const userSlice = createSlice({
       state.password = action.payload.password;
       state.isUserAutorized = true;
     },
-    removeUser(state) {
+    offUser(state) {
       state.login = null;
       state.password = null;
       state.isUserAutorized = false;
@@ -24,7 +24,7 @@ const userSlice = createSlice({
   },
 });
 
-export const {setUser, removeUser} = userSlice.actions;
+export const {setUser, offUser} = userSlice.actions;
 
 export default userSlice.reducer;
 
