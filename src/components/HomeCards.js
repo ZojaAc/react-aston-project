@@ -15,7 +15,7 @@ export default function HomeCards({
   }
 
   const clickAddToFavor = () => {
-    onClickToFavor({id, name});  //  добавит в избранное
+    onClickToFavor({id, name, tagline, brewed, img});  //  добавит в избранное
     onClickLike(id);  //  поменяет картинку
   } 
 
