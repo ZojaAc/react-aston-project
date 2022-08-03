@@ -15,6 +15,7 @@ function App() {
   const [listItems, setListItems] = useState([]);  //  список товаров
   const [listFavor, setListFavor] = useState([]);  //  список избранного
   const [itemDetails, setItemDetails] = useState({});  //  детали одного товара
+  const [pairingDetails, setPairingDetails] = useState([]);  //  детали одного товара - список еды
   const [searchValue, setSearchValue] = useState('');  //  карточки из поиска
  
   const [itemID, setItemID] = React.useState(0);
@@ -28,14 +29,28 @@ function App() {
     })
   }, []);
 
+  // получить список по имени
+  // const valueName = 'end of history';
+  // useEffect(() => {
+  //   axios.get(`https://api.punkapi.com/v2/beers?beer_name=${valueName}`)
+  //   .then((res) => {
+  //     setListItems([...listItems, ...res.data]);
+  //     console.log(res.data);
+  //   })
+  // }, []);
+
+  
+
   useEffect(() => {
     if(itemID) {
       axios.get(`https://api.punkapi.com/v2/beers/${itemID}`)
       .then((res) => {
-        if(res.data) {
+        if(res && res.data && res.data.length) {
           setItemDetails(res.data[0]);
+          setPairingDetails(res.data[0].food_pairing);
           // console.log(res.data);
           // console.log(res.data[0]);
+          // console.log(res.data[0].food_pairing);
         }     
       })    
     };
@@ -76,10 +91,9 @@ function App() {
           </Route>
           <Route path='/signin' element={<SignInPage />}>
           </Route>
-          <Route path='/carditem' element={<Card listDetails={itemDetails} />}>
+          <Route exact path='/carditem' element={<Card listDetails={itemDetails} listPairing={pairingDetails} />}>
           </Route>
-        
-          {/* временно? */}
+                  
           <Route path='/favorites' element={<Favorites listFavor={listFavor} />}>
           </Route>
         </Routes>     
