@@ -20,7 +20,7 @@ function App() {
   const value = { itemID, setItemID };
   
   useEffect(() => {
-    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=6`)
+    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=20`)
     .then((res) => {
       setListItems([...listItems, ...res.data]);
       // console.log(res.data);

@@ -28,6 +28,7 @@ const FormTemplate = ({ title, handleClick }) => {
       </div>
       <div className="form__box">
         <input className="form__btn btn"
+          type='submit'
           placeholder={title}          
           onClick={() => handleClick(login, password)}
         >          

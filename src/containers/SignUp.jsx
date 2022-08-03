@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FormTemplate } from "./FormTemplate";
 import { setUser } from "../store/userSlice";
+import {store} from '../store/store';
 
 
 const SignUp = () => {
@@ -18,6 +19,7 @@ const SignUp = () => {
       isUserAutorized: true,
     }));
     navigate('/');
+    // console.log(store.getState());
   }
 
   return (

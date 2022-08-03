@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FormTemplate } from "./FormTemplate";
 import { setUser } from "../store/userSlice";
+import {store} from '../store/store';
 
 
 const SignIn = () => {
@@ -11,11 +12,11 @@ const SignIn = () => {
   const handleLogin = (login, password, isUserAutorized) => {
     const loginData = localStorage.getItem('loginData', login);
     const passwordData = localStorage.getItem('passwordData', password);
+    // console.log(store.getState());
 
     if(loginData !== login) {
       const text1 = document.getElementById('wrongName');
       text1.style.display = 'block';
-      console.log('wrong name');
     } 
     else if (loginData === login && passwordData !== password) {
       const text2 = document.getElementById('wrongPassword');
@@ -28,6 +29,7 @@ const SignIn = () => {
         isUserAutorized: true,
       }));
       navigate('/');
+      // console.log(store.getState());
     }
   }
 

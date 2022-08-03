@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from '../provider';
+import { useAuth } from '../hooks/auth';
 
 export default function HomeCards({ 
   id, name, tagline, 
@@ -9,6 +10,8 @@ export default function HomeCards({
   }) {
 
   const { setItemID } = useContext(DataContext);
+
+  const {isAuth, login} = useAuth();
 
   const onClickShowDetails = () => {
     setItemID(id);
@@ -36,9 +39,15 @@ export default function HomeCards({
         </Link>      
       </div>
       <img className='goods__img' src={img} alt='good-img' />
-      <button className='goods__btn-like' onClick={clickAddToFavor}>
-        <img className='goods__btn-like-img' src={onClickLike(id) ? '/img/liked.svg' : '/img/like.svg'} alt='like-img' />
-      </button>      
+
+      {
+        isAuth ? (
+          <button className='goods__btn-like' onClick={clickAddToFavor}>
+            <img className='goods__btn-like-img' src={onClickLike(id) ? '/img/liked.svg' : '/img/like.svg'} alt='like-img' />
+          </button>     
+        ) : (null)
+      }            
+      
     </>
   )
 }
