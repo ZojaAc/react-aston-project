@@ -6,7 +6,8 @@ import { useAuth } from '../hooks/auth';
 export default function HomeCards({ 
   id, name, tagline, 
   brewed, description, pairing, tips, authTips, 
-  img, onClickToFavor, onClickLike
+  img, onClickToFavor, onClickLike,
+  searchValue, setSearchValue
   }) {
 
   const { setItemID } = useContext(DataContext);
@@ -39,6 +40,7 @@ export default function HomeCards({
         </Link>      
       </div>
       <img className='goods__img' src={img} alt='good-img' />
+      <a className='up' href='#toHeader'>up</a>
 
       {
         isAuth ? (

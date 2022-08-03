@@ -17,7 +17,7 @@ export default function Header() {
     <div className="header flex flex--btw">
       <Link to='/'>
         <div className="header__main-box flex">
-          <h1 className="header__main-name">Find your beer</h1>
+          <h1 className="header__main-name" id="toHeader">Find your beer</h1>
           <img className="header__main-logo" src="./img/logo.png" alt="logo"/>
         </div>
       </Link>

@@ -138,6 +138,10 @@ a {
       min-width: 100px;
       margin-left: 20px;
     }
+
+    &-box {
+      position: relative;
+    }
   }
 
   &__list {
@@ -280,5 +284,36 @@ span#wrongName, span#wrongPassword {
     border: 2px dashed #800080;
     padding: 20px;
   }
+}
+
+.search {
+  &__clear {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+}
+
+.up {
+  display: block;
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;    
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #e6e6e6;
+  border: 2px solid #800080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 

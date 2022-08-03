@@ -2,7 +2,7 @@ import React from "react";
 
 
 export default function CardItem({ 
-  id, name, tagline, brewed, description, pairing, tips, authTips, img, onClickToFavor, onClickLike 
+  id, name, tagline, brewed, description, foodPairing, tips, authTips, img, onClickToFavor, onClickLike 
   }) {
 
   // const clickAddToFavor = () => {
@@ -17,7 +17,7 @@ export default function CardItem({
         <span className='goods__tagline'><b>Tagline:</b> {tagline}</span><br/>
         <span className='goods__prod-date'>First brewed: {brewed}</span><br/>
         <p className='goods__description'>{description}</p>
-        <p className="goods__pairing"><b>Enjoy it with:</b> {pairing}</p>       
+        <p className="goods__pairing"><b>Enjoy it with:</b> {foodPairing}</p>       
         <p className='goods__tips'><b>Brewers tips:</b> {tips} from: {authTips}</p>
       </div>
       <img className='goods__img' src={img} alt='goods-img' />
