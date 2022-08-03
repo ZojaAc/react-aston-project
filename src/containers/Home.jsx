@@ -7,7 +7,7 @@ export default function Home({ listItems, onAddToFavor, isItemAddtoFavor }) {
     <div className='main'>
       {<HomeSearch />}
       
-      <div className='main__list goods'>
+      <div className='main__list goods flex--wrap'>
         {listItems.map((item) => (
           <div className='goods__card' key={item.id}>
             <HomeCards
@@ -15,10 +15,10 @@ export default function Home({ listItems, onAddToFavor, isItemAddtoFavor }) {
               name={item.name}
               tagline={item.tagline}
               brewed={item.first_brewed}
-              description={item.description}
-              pairing={item.food_pairing}
-              tips={item.brewers_tips}
-              authTips={item.contributed_by}
+              // description={item.description}
+              // pairing={item.food_pairing}
+              // tips={item.brewers_tips}
+              // authTips={item.contributed_by}
               img={item.image_url}
               onClickToFavor={(obj) => onAddToFavor(obj)}
               onClickLike={isItemAddtoFavor}

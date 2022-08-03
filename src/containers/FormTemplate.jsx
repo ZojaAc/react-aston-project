@@ -27,11 +27,12 @@ const FormTemplate = ({ title, handleClick }) => {
         />
       </div>
       <div className="form__box">
-        <button className="form__btn btn"
+        <input className="form__btn btn"
+          type='submit'
+          placeholder={title}          
           onClick={() => handleClick(login, password)}
-        >
-          {title}
-        </button>
+        >          
+        </input>
       </div>      
     </form>
   )

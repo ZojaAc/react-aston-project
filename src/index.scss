@@ -124,7 +124,7 @@ a {
 
   &__description {
     margin: 0 auto;
-    padding: 10px 15px;
+    padding: 10px 70px;
     text-align: center;
   }
 
@@ -143,6 +143,7 @@ a {
   &__list {
     padding: 20px;
     display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -195,19 +196,25 @@ span#wrongName, span#wrongPassword {
   }
 
   &__card {
-    width: 50%;
-    margin: 0 10px;
+    width: 30%;
     display: flex;
+    justify-content: space-between;
     position: relative;
-    padding-bottom: 60px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px dashed #e6e6e6;
   }
 
   &__tagline {
     @include font(18px, 24px, 500);
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 
   &__description, &__pairing, &__tips {
     @include font(16px, 20px, 300);
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   &__prod-date {
@@ -215,8 +222,8 @@ span#wrongName, span#wrongPassword {
   }
 
   &__img {
-    max-width: 200px;
-    max-height: 300px;
+    max-width: 180px;
+    max-height: 260px;
     margin-left: 15px;
   }
 
@@ -226,8 +233,8 @@ span#wrongName, span#wrongPassword {
     border: none;
     background-color: inherit;
     position: absolute;
-    top: 0;
-    right: 40%;
+    bottom: 65px;
+    left: 45px;
 
     &-img {
       width: 48px;
@@ -245,7 +252,7 @@ span#wrongName, span#wrongPassword {
     padding: 10px 25px;
     border-radius: 3px;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     left: 10px;
     display: flex;
     align-items: center;
@@ -262,6 +269,16 @@ span#wrongName, span#wrongPassword {
       }
     }
 
+  }
+}
+
+.card {
+  padding: 20px;
+  
+  &__wrapper {
+    max-width: 70%;
+    border: 2px dashed #800080;
+    padding: 20px;
   }
 }
 

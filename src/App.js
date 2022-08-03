@@ -7,19 +7,39 @@ import Home from './containers/Home';
 import Favorites from './components/Favorites';
 import SignUpPage from './components/SignUpPage';
 import SignInPage from './components/SignInPage';
+import Card from './containers/Card';
+import DataContext from './provider';
 
 
 function App() {
   const [listItems, setListItems] = useState([]);  //  список товаров
   const [listFavor, setListFavor] = useState([]);  //  список избранного
+  const [itemDetails, setItemDetails] = useState({});  //  детали одного товара
+
+  const [itemID, setItemID] = React.useState(0);
+  const value = { itemID, setItemID };
   
   useEffect(() => {
-    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=2`)
+    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=20`)
     .then((res) => {
       setListItems([...listItems, ...res.data]);
-      console.log(res.data);
+      // console.log(res.data);
     })
   }, []);
+
+  useEffect(() => {
+    if(itemID) {
+      axios.get(`https://api.punkapi.com/v2/beers/${itemID}`)
+      .then((res) => {
+        if(res.data) {
+          setItemDetails(res.data[0]);
+          // console.log(res.data);
+          // console.log(res.data[0]);
+        }     
+      })    
+    };
+  }, [itemID]);
+
 
   const onAddToFavor = (obj) => {
     if(listFavor.find((item) => item.id === obj.id)) {
@@ -36,22 +56,23 @@ function App() {
   return (
     <>
       <Header />      
-      
-      <Routes>
-        <Route path='/' element={<Home 
-          listItems={listItems} onAddToFavor={onAddToFavor} isItemAddtoFavor={isItemAddtoFavor} />}>
-        </Route>
-        <Route path='/signup' element={<SignUpPage />}>
-        </Route>
-        <Route path='/signin' element={<SignInPage />}>
-        </Route>
-
-        {/* временно */}
-        <Route path='/favorites' element={<Favorites listFavor={listFavor} />}>
-        </Route>
+      <DataContext.Provider value={value}>
+        <Routes>
+          <Route path='/' element={<Home 
+            listItems={listItems} onAddToFavor={onAddToFavor} isItemAddtoFavor={isItemAddtoFavor} />}>
+          </Route>
+          <Route path='/signup' element={<SignUpPage />}>
+          </Route>
+          <Route path='/signin' element={<SignInPage />}>
+          </Route>
+          <Route path='/carditem' element={<Card listDetails={itemDetails} />}>
+          </Route>
         
-      </Routes>     
-
+          {/* временно? */}
+          <Route path='/favorites' element={<Favorites listFavor={listFavor} />}>
+          </Route>
+        </Routes>     
+      </DataContext.Provider>      
     </>
   );
 }
