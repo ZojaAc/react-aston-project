@@ -14,7 +14,7 @@ export default function Card({ listDetails, onAddToFavor, isItemAddtoFavor }) {
             tagline={listDetails.tagline}
             brewed={listDetails.first_brewed}
             description={listDetails.description}
-            pairing={listDetails.food_pairing + `, `}
+            pairing={listDetails.food_pairing + ', '}
             // pairing={listDetails.join(', ')}
             // pairing={listDetails.food_pairing[0] + `, ` + listDetails.food_pairing[1]}
             // pairing={listDetails.food_pairing.map((item) => (`${item + ', '}`))}

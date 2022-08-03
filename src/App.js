@@ -15,12 +15,13 @@ function App() {
   const [listItems, setListItems] = useState([]);  //  список товаров
   const [listFavor, setListFavor] = useState([]);  //  список избранного
   const [itemDetails, setItemDetails] = useState({});  //  детали одного товара
-
+  const [searchValue, setSearchValue] = useState('');  //  карточки из поиска
+ 
   const [itemID, setItemID] = React.useState(0);
   const value = { itemID, setItemID };
   
   useEffect(() => {
-    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=20`)
+    axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`)
     .then((res) => {
       setListItems([...listItems, ...res.data]);
       // console.log(res.data);
@@ -53,13 +54,23 @@ function App() {
     return listFavor.some((obj) => obj.id === id);
   };
 
+  const onChangeInput = (event) => {
+    setSearchValue(event.target.value);
+  }
+
   return (
     <>
       <Header />      
       <DataContext.Provider value={value}>
         <Routes>
           <Route path='/' element={<Home 
-            listItems={listItems} onAddToFavor={onAddToFavor} isItemAddtoFavor={isItemAddtoFavor} />}>
+            listItems={listItems} 
+            onAddToFavor={onAddToFavor} 
+            isItemAddtoFavor={isItemAddtoFavor} 
+            onChangeInput={onChangeInput}
+            searchValue={searchValue} 
+            setSearchValue={setSearchValue}
+            />}>
           </Route>
           <Route path='/signup' element={<SignUpPage />}>
           </Route>
