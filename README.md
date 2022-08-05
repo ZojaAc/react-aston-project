@@ -1,7 +1,5 @@
-## Beer store
-### React-project (Punk API)
+## Beer store (React-project with Punk API)
 ***********
-
 ### Для корректного отображения стилей установите sass `npm install node-sass`
 ***********
 
