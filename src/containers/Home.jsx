@@ -17,7 +17,7 @@ export default function Home({ listItems, onAddToFavor, isItemAddtoFavor }) {
 
   const debouncedItems = useCallback(debounce(listItems), []);
 
-	const onChangeInput = (event) => {
+  const onChangeInput = (event) => {
     setValue(event.target.value);
     debouncedItems(event.target.value);
   }

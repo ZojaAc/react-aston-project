@@ -73,8 +73,7 @@ function App() {
             <Route path='/signin' element={<SignInPage />}>
             </Route>
             <Route path='/carditem' element={<Card listDetails={itemDetails} listPairing={pairingDetails} />}>
-            </Route>
-                    
+            </Route>                    
             <Route path='/favorites' element={<Favorites listFavor={listFavor} />}>
             </Route>
             <Route path='/history' element={<History />}>
