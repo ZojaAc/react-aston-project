@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { useAuth } from '../hooks/auth';
 import { offUser } from "../store/userSlice";
 
@@ -10,7 +9,6 @@ export default function Header() {
 
   const {isAuth, login} = useAuth();
 
-  // const userName = useSelector((state) => state.login);
   const userName = localStorage.getItem('loginData');
  
   return (

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { SignUp } from '../containers/SignUp';
 
-
 export default function SignUpPage() {
   return (
     <>
@@ -16,4 +15,3 @@ export default function SignUpPage() {
     </>
   )
 }
-

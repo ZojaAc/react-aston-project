@@ -1,15 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import DataContext from '../provider';
+import PropTypes from 'prop-types';
+import DataContext from '../context/provider';
 import { useAuth } from '../hooks/auth';
 
-export default function HomeCards({ 
-  id, name, tagline, 
-  brewed, description, pairing, tips, authTips, 
-  img, onClickToFavor, onClickLike,
-  searchValue, setSearchValue
-  }) {
-
+export default function HomeCards({ id, name, tagline, brewed, img, onClickToFavor, onClickLike }) {
   const { setItemID } = useContext(DataContext);
 
   const {isAuth, login} = useAuth();
@@ -29,9 +24,6 @@ export default function HomeCards({
         <h3 className='goods__name'>{name}</h3>
         <span className='goods__tagline'>{tagline}</span>
         <span className='goods__prod-date'>First brewed: {brewed}</span>
-        {/* <p className='goods__description'>{description}</p>
-        <p className='goods__pairing'><b>Enjoy it with:</b> {pairing.map((pair, i) => (`${pairing[i] + ', '}`))}</p>
-        <p className='goods__tips'><b>Brewers tips:</b> {tips} from: {authTips}</p> */}
         <Link to='/carditem'>
           <button className='goods__btn-more btn' onClick={onClickShowDetails}>
             <span className='goods__btn-more-txt'>more</span>
@@ -39,7 +31,8 @@ export default function HomeCards({
           </button>
         </Link>      
       </div>
-      <img className='goods__img' src={img} alt='good-img' />
+      {/* заглушка на случай отсутствия фото */}
+      <img className='goods__img' src={(img) ? img : '/img/keg.png'} alt='good-img' /> 
       <a className='up' href='#toHeader'>up</a>
 
       {
@@ -48,8 +41,17 @@ export default function HomeCards({
             <img className='goods__btn-like-img' src={onClickLike(id) ? '/img/liked.svg' : '/img/like.svg'} alt='like-img' />
           </button>     
         ) : (null)
-      }            
-      
+      }                  
     </>
   )
+}
+
+HomeCards.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  tagline: PropTypes.string,
+  brewed: PropTypes.string,
+  img: PropTypes.string,
+  onClickToFavor: PropTypes.func,
+  onClickLike: PropTypes.func
 }

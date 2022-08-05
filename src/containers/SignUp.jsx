@@ -4,7 +4,6 @@ import { FormTemplate } from "./FormTemplate";
 import { setUser } from "../store/userSlice";
 import {store} from '../store/store';
 
-
 const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

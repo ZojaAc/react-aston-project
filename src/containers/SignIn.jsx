@@ -4,7 +4,6 @@ import { FormTemplate } from "./FormTemplate";
 import { setUser } from "../store/userSlice";
 import {store} from '../store/store';
 
-
 const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -12,7 +11,6 @@ const SignIn = () => {
   const handleLogin = (login, password, isUserAutorized) => {
     const loginData = localStorage.getItem('loginData', login);
     const passwordData = localStorage.getItem('passwordData', password);
-    // console.log(store.getState());
 
     if(loginData !== login) {
       const text1 = document.getElementById('wrongName');
@@ -24,7 +22,7 @@ const SignIn = () => {
     } 
     else if (loginData === login && passwordData === password) {
       dispatch(setUser({
-        login: login,             /// дублирование???
+        login: login,            
         password: password,
         isUserAutorized: true,
       }));

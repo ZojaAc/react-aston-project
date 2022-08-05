@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 const FormTemplate = ({ title, handleClick }) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +27,7 @@ const FormTemplate = ({ title, handleClick }) => {
       </div>
       <div className="form__box">
         <input className="form__btn btn"
-          type='submit'
+          // type='submit'
           placeholder={title}          
           onClick={() => handleClick(login, password)}
         >          
