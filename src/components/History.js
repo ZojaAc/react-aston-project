@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios'; 
+import React from "react";
+import { useGetByNameQuery } from '../request/apiRequest';
 
 export default function History() {  
-  const [listHistory, setListHistory] = useState([]);
-
   const allSearch = localStorage.getItem('history').slice().split(',').filter(i => i !== '');
   const resStr = allSearch.join('|');
   
-  useEffect(() => {
-    if(resStr && resStr.length) {
-      axios.get(`https://api.punkapi.com/v2/beers?beer_name=${resStr}`)
-      .then((res) => {
-        setListHistory([...listHistory, ...res.data]);
-      })
-    }    
-  }, []);
+  const { data=[], isLoading } = useGetByNameQuery(resStr);  //  вызов хука - возврат данных
+
+  if(isLoading) return <h1 className='title title__link-a'>Loading now....</h1> 
 
   return(
     <>
@@ -24,7 +17,7 @@ export default function History() {
             <h2 className="title">Your search history list:</h2>
             <div className="flex flex--around flex--wrap">          
               <>
-                {listHistory.map((elem, i) => (
+                {data.map((elem, i) => (
                   <div className="goods__card" key={i}>
                     <div>
                       <h3 className='goods__name'>{elem.name}</h3>

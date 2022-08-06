@@ -8,11 +8,15 @@ export const apiRequest = createApi({
             query: (value) => `?beer_name=${value}`,
             transformResponse: (response) => response,
         }),
-        getByFood: builder.query({
-            query: (value) => `?food=${value}`,
+        getCollection: builder.query({
+            query: () => `?page=1&per_page=80`,
             transformResponse: (response) => response,
         }),
     }),
 })
 
-export const {useGetByName, useGetByFood} = apiRequest;
+export const {useGetByNameQuery, useGetCollectionQuery} = apiRequest;
+
+// https://api.punkapi.com/v2/beers?page=1&per_page=80  лист гл стр
+// https://api.punkapi.com/v2/beers?beer_name=${resStr}  лист истории поиска
+// https://api.punkapi.com/v2/beers/${itemID}  передача все данных одной карточки

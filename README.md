@@ -1,7 +1,8 @@
 ## Beer store (React-project with Punk API)
-***********
+
 ### Для корректного отображения стилей установите sass `npm install node-sass`
-***********
+
+**************
 
 ### **Выполнены требования:**
 #### **React**
@@ -19,5 +20,5 @@
 * Используем Modern Redux with Redux Toolkit ✔️ [store](https://github.com/ZojaAc/react-aston-project/blob/main/src/store/store.js)
 * Используем слайсы ✔️ [User](https://github.com/ZojaAc/react-aston-project/blob/main/src/store/userSlice.js)
 * Есть хотя бы одна кастомная мидлвара ✔️ [HistoryStorage](https://github.com/ZojaAc/react-aston-project/blob/main/src/store/middleware.js)
-* Используется RTK Query
+* Используется RTK Query ✔️ [API request for SearchHistoryList](https://github.com/ZojaAc/react-aston-project/blob/main/src/request/apiRequest.js), [HistoryList](https://github.com/ZojaAc/react-aston-project/blob/main/src/components/History.js)
 * Используется Transforming Responses

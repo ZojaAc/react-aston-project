@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import HomeCards from '../components/HomeCards';
 import HomeIntro from '../components/HomeIntro';
 import { addHistory } from "../store/userSlice";
-import {store} from '../store/store';
 import { useAuth } from '../hooks/auth';
 import { debounce } from '../utility/debounce';
 
@@ -27,9 +26,6 @@ export default function Home({ listItems, onAddToFavor, isItemAddtoFavor }) {
       dispatch(addHistory(value));
     }
 	}
-
-  // console.log(store.getState());
-  // console.log(localStorage.getItem('history'));
 
   return (
     <div className='main'>

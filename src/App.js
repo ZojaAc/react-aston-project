@@ -21,7 +21,7 @@ function App() {
  
   const [itemID, setItemID] = React.useState(0);
   const value = { itemID, setItemID };
-  
+
   useEffect(() => {
     axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`)
     .then((res) => {
